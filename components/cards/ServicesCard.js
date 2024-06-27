@@ -12,7 +12,7 @@ const ServicesCard = (props) => {
           <h4 className="color-brand-1 mb-10">
             <Link
               className="color-brand-1"
-              href="Seamless importing and round-tripping of Microsoft Project plans, Excel files & CSV files."
+              href={props.route}
             >
               {props.heading}
             </Link>
@@ -20,7 +20,7 @@ const ServicesCard = (props) => {
           <p className="font-md color-grey-500 mb-5">{props.desc}</p>
           <div className="box-button-offer">
             <Link
-              href="#"
+              href={props.route}
               className="btn btn-default font-sm-bold pl-0 color-brand-1"
             >
               Learn More

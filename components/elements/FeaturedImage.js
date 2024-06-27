@@ -1,16 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
-const FeaturedImage = ({ post, styleClasses, priority }) => {
+const FeaturedImage = ({ post, styleClasses, priority, height }) => {
   let img = "";
   const defaultFeaturedImage =
     "https://asokeywordtool.com/wp-content/uploads/2024/05/img-marketing-1.png";
   const defaultWidth = "720";
   const defaultHeight = "520";
   if (post.featuredImage) {
-    let size =
-      post.featuredImage.node.mediaDetails.sizes[
-        post.featuredImage.node.mediaDetails.sizes.length - 3
-      ];
+    let size = post.featuredImage.node.mediaDetails.sizes[1];
+    // post.featuredImage.node.mediaDetails.sizes.length - 4
     img = {
       src: size.sourceUrl,
       height: size.height,
@@ -23,12 +21,14 @@ const FeaturedImage = ({ post, styleClasses, priority }) => {
       width: defaultWidth,
     };
   }
+
   return (
     <>
       <Image
         src={img.src}
-        layout="responsive"
-        height={img.height}
+        // layout="responsive"
+        // height={img.height}
+        height={height}
         width={img.width}
         className={styleClasses}
         alt={post.title}
